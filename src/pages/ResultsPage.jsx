@@ -1,5 +1,5 @@
 export default function ResultsPage({quiz, setPage}){
-
+// answer check below
   let correct = quiz.userAnswer == quiz.questionData.correct_answer
 
   return(
@@ -14,3 +14,4 @@ export default function ResultsPage({quiz, setPage}){
       </div>
   )
 }
+// codes above show if the answer was right or wrong, shows the correct answer, and has a restart button

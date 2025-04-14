@@ -1,9 +1,10 @@
 import { useState } from 'react'
-
+// use state for managing state
 export default function HomePage({quiz, setQuiz, setPage}){
 
   const [error, setError] = useState("")
-
+// shows the error if clicked submit without filling out all the fields
+// code below is the form submission
   function handleSubmit(e){
       e.preventDefault()
 
@@ -21,23 +22,23 @@ export default function HomePage({quiz, setQuiz, setPage}){
           <h2>Welcome to my quiz!!</h2>
 
           <form onSubmit={handleSubmit}>
-
-              <input 
+             
+              <input //name input
                   type="text"
                   placeholder="Enter your name"
                   onChange={(e)=>setQuiz({...quiz, name: e.target.value})}
               />
 
-              <br/> <br/>
-
-              <select onChange={(e)=>setQuiz({...quiz, category: e.target.value})}>
+              <br/> <br/> 
+              
+              <select onChange={(e)=>setQuiz({...quiz, category: e.target.value})}> 
                   <option value="">Pick category</option>
                   <option value="9">General Knowledge</option>
                   <option value="11">Movies</option>
                   <option value="12">Music</option>
                   <option value="15">Video Games</option>
               </select>
-
+            
               <br/><br/>
 
               <select onChange={(e)=>setQuiz({...quiz, difficulty: e.target.value})}>

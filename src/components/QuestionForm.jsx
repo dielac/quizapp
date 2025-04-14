@@ -3,11 +3,11 @@ import {useState} from "react"
 export default function QuestionForm({data, handleAnswer}){
 
     const [selected, setSelected] = useState("")
-
+    // this combines the rigth and wrong answers in a single array//
     const answers = [...data.incorrect_answers, data.correct_answer].sort(()=>Math.random()-0.5)
 
-
-    function handleSubmit(e){
+    //form submissions 
+    function handleSubmit(e){ 
         e.preventDefault()
 
         if (selected == ""){
@@ -18,7 +18,7 @@ export default function QuestionForm({data, handleAnswer}){
     }
 
 
-    return (
+    return ( // code below renders the question and answer options, and updated the selected state with the users answer 
         <form onSubmit={handleSubmit}>
             <h3 dangerouslySetInnerHTML={{__html:data.question}}></h3>
             {
@@ -30,10 +30,10 @@ export default function QuestionForm({data, handleAnswer}){
                         <label dangerouslySetInnerHTML={{__html:ans}}></label>
                     </div>
                 ))
-                
-            }
 
-            <button>Answer</button>
+            }
+                
+            <button>Answer</button> 
         </form>
     )
 }
